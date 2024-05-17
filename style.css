@@ -1,0 +1,635 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* generales */
+* {
+  padding: 0;
+  margin: 0;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  color: inherit;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+/* menu de navegacion*/
+#landing-header {
+  display: flex;
+  height: 56px;
+  padding: 0px 48px 0px 32px;
+  color: currentColor;
+  position: relative;
+}
+
+#nav-container {
+  display: inline-flex;
+  flex-grow: 1
+}
+
+.nav-menu,
+.nav-icons {
+  display: flex;
+  align-items: center;
+}
+
+.ul-nav-menu,
+.ul-nav-icons {
+  z-index: 10;
+  display: flex;
+}
+
+.nav-icons {
+  flex-grow: 1;
+  justify-content: end;
+}
+
+.buton-nav {
+  background-color: transparent;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  position: relative;
+  cursor: pointer;
+  padding: 4px 16px;
+  transition: all 0.3s ease;
+
+  span {
+    display: none;
+  }
+}
+
+.buton-nav:hover {
+  background-color: rgba(0, 0, 0, 0.062);
+  backdrop-filter: blur(10px);
+  border-radius: 4px;
+}
+
+.logo-container {
+  z-index: 50;
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  padding-left: 16px;
+}
+
+.logo-icon {
+  width: 120px;
+  height: 24px;
+  transition: all 0.3s ease;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+}
+
+/*
+  MAIN CON LAS IMAGENES DE LOS COCHES Y LOS BOTONES
+*/
+main {
+  z-index: 1;
+  position: relative;
+  margin-top: -56px;
+  width: 100vw;
+  height: 100vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scroll-snap-type: y mandatory;
+}
+
+section {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  justify-content: space-between;
+  scroll-snap-align: center;
+
+  a {
+    text-decoration: underline;
+  }
+}
+
+/* backgraund sections */
+section:nth-child(1) {
+  background-image: url('images/Homepage-Model-Y-Desktop-Global.avif');
+}
+
+section:nth-child(2) {
+  background-image: url('images/Homepage-Model-3-Desktop-LHD-v2.avif');
+}
+
+section:nth-child(3) {
+  background-image: url('images/Homepage-Model-X-Desktop-LHD.avif');
+}
+
+section:nth-child(4) {
+  background-image: url('images/Homepage-Model-S-Desktop-LHD-6.22.avif');
+}
+
+section:nth-child(5) {
+  background-image: url('images/Homepage-Cybertruck-Desktop.avif');
+}
+
+section:nth-child(6) {
+  background-image: url('images/Homepage-SolarPanels-01-Desktop.avif');
+  color: white;
+}
+
+section:nth-child(7) {
+  background-image: url('images/Homepage-SolarRoof-Desktop-Global.avif');
+}
+
+section:nth-child(8) {
+  background-image: url('images/Homepage-Powerwall-01-Desktop.avif');
+}
+
+section:nth-child(9) {
+  background-image: url('images/Homepage-Accessories-Desktop-NA-APAC.avif');
+}
+
+/* estilo del contenido de las secciones */
+.header-model {
+  margin-top: 160px;
+
+  #model-tesla {
+    font-size: 40px;
+    font-weight: 500;
+  }
+
+  #price {
+    font-size: 20px;
+    font-weight: 400;
+  }
+
+  #description {
+    font-size: 12px;
+    font-weight: 100;
+  }
+}
+
+section footer {
+  margin-bottom: 64px;
+  margin-top: auto;
+  bottom: 0;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  padding: 24px;
+  padding-right: 44px;
+  gap: 1.5rem;
+}
+
+.button {
+  text-decoration: none;
+  display: inline-flex;
+  padding: 4px 24px;
+  border-radius: 3px;
+  width: 264px;
+  height: 40px;
+  font-size: 14px;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  box-shadow: 0 0 25px 1px rgba(38, 38, 38, 0.382);
+}
+
+#order-now {
+  backdrop-filter: blur(5px);
+  background-color: rgba(255, 255, 255, 0.636);
+  color: black;
+  font-weight: 600;
+}
+
+#order-now:hover {
+  background-color: rgba(255, 255, 255, 0.968);
+}
+
+#demo-drive {
+  backdrop-filter: blur(5px);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+}
+
+#demo-drive:hover {
+  background-color: rgba(0, 0, 0, 0.742);
+}
+
+#disclaimer {
+  font-size: 12px;
+  padding-left: 24px;
+  padding-right: 44px;
+}
+
+
+/*
+  MENU DESPLEGABLE AL HACER HOVER EN UN BOTON DEL NAV
+*/
+@keyframes descend {
+  from {
+    transform: translateY(-2%);
+    opacity: 0.5;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes ascend {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-20%);
+    opacity: 0;
+  }
+}
+
+.menu {
+  z-index: -1;
+  top: 0;
+  position: absolute;
+  padding: 56px 48px 48px;
+  background-color: rgb(255, 255, 255);
+  color: black;
+  left: 0;
+  width: 100%;
+  justify-content: center;
+  animation: descend 0.2s ease-in;
+  display: none;
+}
+
+.buton-nav:hover~.menu {
+  display: flex;
+}
+
+.menu:hover {
+  display: flex;
+}
+
+
+/*
+  ESTILO DEL MENU DESPLEGADO
+*/
+.links a:hover,
+.menu-list a:hover {
+  background-color: rgba(0, 0, 0, 0.03);
+  border-radius: 3px;
+}
+
+.container-menu-products {
+  font-weight: 300;
+  display: flex;
+  justify-content: center;
+  padding: 64px 0 16px;
+}
+
+.menu-with-img {
+  max-width: 970px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.product {
+  text-align: center;
+
+  h3 {
+    font-size: 17px;
+    font-weight: 600;
+  }
+
+  img {
+    width: 220px;
+    transition: scale 0.3s ease;
+  }
+
+  .links {
+    justify-content: center;
+    display: flex;
+    padding-top: 8px;
+    gap: 0.3rem;
+    font-size: 13px;
+    text-decoration: underline;
+  }
+}
+
+.product img:hover {
+  scale: 1.1;
+}
+
+.line-vertical {
+  border-left: 1px solid rgba(172, 172, 172, 0.276);
+  padding-left: 64px;
+  margin-left: 64px;
+}
+
+.line-horizontal {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid rgba(172, 172, 172, 0.276);
+  padding-top: 32px;
+  margin-bottom: 6px;
+  display: none;
+}
+
+.menu-list {
+  min-width: 240px;
+  padding: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  width: max-content;
+
+  a {
+    padding: 6px 10px;
+    display: inline-block;
+    width: 100%;
+  }
+
+  h3 {
+    padding: 0 10px 14px;
+    font-size: 15px;
+    font-weight: 300;
+  }
+}
+
+
+/*
+ ESTILOS BOTON DESPLIEGA NAV CUANDO SE HAGA LA PANTALLA < 1200px
+*/
+#open-menu-nav {
+  height: max-content;
+  align-self: center;
+  background-color: rgba(54, 54, 54, 0.074);
+  backdrop-filter: blur(10px);
+  padding: 4px 16px;
+  border-radius: 4px;
+  display: none;
+}
+
+.buton-nav-navegation {
+  z-index: 2;
+  background-color: transparent;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.buton-nav-navegation:hover {
+  background-color: rgba(0, 0, 0, 0.105);
+  backdrop-filter: blur(10px);
+  border-radius: 4px;
+}
+
+.menu-navegation-responsive {
+  z-index: 60;
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 0;
+  display: none;
+}
+
+#back-container-img,
+#close-menu-botton {
+  z-index: 60;
+  padding: 4px;
+  display: flex;
+  align-self: center;
+  width: max-content;
+
+  img {
+    display: flex;
+  }
+
+}
+
+/* nombre que se pone arriba en el manu y que va cambiando */
+#name-button-nav {
+  z-index: 60;
+  font-size: 16px;
+  align-self: center;
+  display: none;
+}
+
+.idiome-description {
+  display: none;
+}
+
+
+/*
+ CUANDO SEA < 1200px  => RESPONSIVE, (activo los estilos)
+*/
+@media (width < 1200px) {
+
+  .buton-nav:hover~.menu {
+    display: none;
+  }
+
+  #open-menu-nav {
+    display: block;
+  }
+
+  #nav-container {
+    z-index: 55;
+    position: absolute;
+    padding: 0 25px 64px;
+    height: 100vh;
+    width: 100vw;
+    left: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: rgb(255, 255, 255);
+    display: none;
+  }
+
+  .menu-navegation-responsive {
+    display: flex;
+  }
+
+  #back-container-img {
+    display: none;
+  }
+
+  #name-button-nav {
+    display: block;
+  }
+
+  #close-menu-botton {
+    display: block;
+  }
+
+  .ul-nav-menu {
+    display: block;
+    width: 100%;
+  }
+
+  .nav-icons {
+    justify-content: start;
+  }
+
+  .ul-nav-icons {
+    display: block;
+    width: 100%;
+  }
+
+  .buton-nav {
+    display: flex;
+    padding: 16px 10px;
+    font-size: 17px;
+
+    span {
+      display: flex;
+    }
+  }
+
+  .ul-nav-icons a {
+    display: flex;
+  }
+
+  nav .buton-nav {
+    min-width: 100%;
+  }
+
+  .icon {
+    margin-right: 10px;
+  }
+
+  .idiome-description {
+    flex-direction: column;
+
+    #language {
+      font-size: 15px;
+      font-weight: 300;
+    }
+
+    display: block;
+  }
+
+
+  /* ESTILOS AL DESPLEGARSE EL MENU */
+  .container-menu-products {
+    flex-direction: column;
+  }
+
+  .line-vertical {
+    display: none;
+  }
+
+  .line-horizontal {
+    display: block;
+  }
+
+  .menu-list {
+    font-size: 17px;
+    width: 100%;
+
+    a {
+      padding: 7px 10px;
+      display: inline-block;
+      width: 100%;
+    }
+
+    h3 {
+      padding: 0 10px 14px;
+      font-size: 15px;
+      font-weight: 300;
+    }
+  }
+
+  .menu {
+    z-index: 40;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  .ul-nav-icons {
+    z-index: 5;
+  }
+
+  .nav-icons .buton-nav:nth-child(1) .icon {
+    display: none;
+  }
+}
+
+
+/*
+CUANDO SEA < 600px
+*/
+@media (width < 600px) {
+  .buttons {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  #order-now,
+  #demo-drive {
+    width: 100%;
+  }
+
+  .product {
+    img {
+      width: 160px;
+    }
+  }
+
+  section:nth-child(1) {
+    background-image: url('images/homepage-img-movil/Homepage-Model-Y-Mobile-Global.avif');
+  }
+
+  section:nth-child(2) {
+    background-image: url('images/homepage-img-movil/Homepage-Model-3-Mobile-LHD-v2.avif');
+  }
+
+  section:nth-child(3) {
+    background-image: url('images/homepage-img-movil/Homepage-Model-X-Mobile-LHD_001.avif');
+  }
+
+  section:nth-child(4) {
+    background-image: url('images/homepage-img-movil/Homepage-Model-S-Mobile-LHD-6.22.avif');
+  }
+
+  section:nth-child(5) {
+    background-image: url('images/homepage-img-movil/Homepage-Cybertruck-Mobile.avif');
+  }
+
+  section:nth-child(6) {
+    background-image: url('images/homepage-img-movil/Homepage-SolarPanels-01-Mobile.avif');
+    color: white;
+  }
+
+  section:nth-child(7) {
+    background-image: url('images/homepage-img-movil/Homepage-SolarRoof-Mobile.avif');
+  }
+
+  section:nth-child(8) {
+    background-image: url('images/homepage-img-movil/Homepage-Powerwall-01-Mobile.avif');
+  }
+
+  section:nth-child(9) {
+    background-image: url('images/homepage-img-movil/Homepage-Accessories-Mobile-NA-APAC.avif');
+  }
+}
