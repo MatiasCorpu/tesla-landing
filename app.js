@@ -23,6 +23,7 @@ const observer = new IntersectionObserver(entries => {
 const sections = document.querySelectorAll(".landing-section");
 sections.forEach(section => observer.observe(section));
 
+//---------------------------------------------------------------------------------------------------------------------
 
 //FUNCIONES -> width < 1200px 
 
@@ -49,12 +50,9 @@ function clickCloseMenu() {
 
 function clickButonNav(event) {
     button = event.target;
-
     menuSibling = button.nextElementSibling;
     menuSibling.style.display = "block";
-
     sectionInsertName.textContent = button.textContent;
-
     backButton.style.display = "block";
 }
 
@@ -65,46 +63,26 @@ function clickBackInMenu() {
 }
 
 function setupEventListeners() {
+    openMenuNav.addEventListener("click", clickOpenMenu);
+    closeMenuNav.addEventListener("click", clickCloseMenu);
 
-    if (openMenuNav) {
-        openMenuNav.addEventListener("click", clickOpenMenu);
+    for (var i = 0; i < buttonsNav.length - 3; i++) {
+        buttonsNav[i].addEventListener("click", clickButonNav);
     }
 
-    if (closeMenuNav) {
-        closeMenuNav.addEventListener("click", clickCloseMenu);
-    }
-
-    if (buttonsNav) {
-        for (var i = 0; i < buttonsNav.length - 3; i++) {
-            buttonsNav[i].addEventListener("click", clickButonNav);
-        }
-    }
-
-    if (backButton) {
-        backButton.addEventListener("click", clickBackInMenu);
-    }
+    backButton.addEventListener("click", clickBackInMenu);
 }
 
+//---------------------------------------------------------------------------------------------------------------------
 function removeEventListeners() {
-
-    if (openMenuNav) {
-        openMenuNav.removeEventListener("click", clickOpenMenu);
+    openMenuNav.removeEventListener("click", clickOpenMenu);
+    closeMenuNav.removeEventListener("click", clickCloseMenu);
+    for (var i = 0; i < buttonsNav.length; i++) {
+        buttonsNav[i].removeEventListener("click", clickButonNav);
     }
-
-    if (closeMenuNav) {
-        closeMenuNav.removeEventListener("click", clickCloseMenu);
-    }
-
-    if (buttonsNav) {
-        for (var i = 0; i < buttonsNav.length; i++) {
-            buttonsNav[i].removeEventListener("click", clickButonNav);
-        }
-    }
-
-    if (backButton) {
-        backButton.removeEventListener("click", clickBackInMenu);
-    }
+    backButton.removeEventListener("click", clickBackInMenu);
 }
+
 
 function changeStatus() {
     menuNavContainer.style.display = "none";
@@ -137,13 +115,12 @@ function scrollYMain() {
 
 }
 
-
 document.addEventListener("DOMContentLoaded", function () {
 
     // Verificar el ancho de la ventana al cargar el DOM
     if (window.innerWidth < 1200) {
         setupEventListeners();
-    
+
     } else {
         removeEventListeners();
 

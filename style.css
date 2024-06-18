@@ -67,7 +67,9 @@ body {
   span {
     display: none;
   }
+
 }
+
 
 .buton-nav:hover {
   background-color: rgba(0, 0, 0, 0.062);
@@ -104,13 +106,17 @@ main {
   margin-top: -56px;
   width: 100vw;
   height: 100vh;
+  height: 100dvh;
+  height: 100;
   overflow-y: scroll;
   overflow-x: hidden;
   scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
 }
 
 section {
   height: 100vh;
+  height: 100dvh;
   width: 100vw;
   display: flex;
   flex-direction: column;
@@ -119,7 +125,7 @@ section {
   background-size: cover;
   background-position: center;
   justify-content: space-between;
-  scroll-snap-align: center;
+  scroll-snap-align: start;
 
   a {
     text-decoration: underline;
@@ -175,7 +181,7 @@ section:nth-child(9) {
   }
 
   #price {
-    font-size: 20px;
+    font-size: 17px;
     font-weight: 400;
   }
 
@@ -225,23 +231,37 @@ section footer {
 
 #order-now {
   backdrop-filter: blur(5px);
-  background-color: rgba(255, 255, 255, 0.636);
   color: black;
   font-weight: 600;
+  background-color: rgba(255, 255, 255, 0.555);
+  border: 2px solid rgba(0, 0, 0, 0.914);
 }
 
 #order-now:hover {
-  background-color: rgba(255, 255, 255, 0.968);
+  background-color: rgba(255, 255, 255, 0.991);
+}
+
+#order-now:focus {
+  border: 2px solid rgba(0, 0, 0, 0.914);
+  box-shadow: inset 0 0 0 2px rgb(100, 100, 100);
+  background-color: rgba(255, 255, 255, 0.976);
 }
 
 #demo-drive {
   backdrop-filter: blur(5px);
-  background-color: rgba(0, 0, 0, 0.5);
   color: white;
+  background-color: rgba(0, 0, 0, 0.75);
+  border: 2px solid rgba(0, 0, 0, 0.914);
 }
 
 #demo-drive:hover {
-  background-color: rgba(0, 0, 0, 0.742);
+  background-color: rgba(0, 0, 0, 0.967);
+}
+
+#demo-drive:focus {
+  border: 2px solid rgba(255, 255, 255, 0.774);
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.737);
+  background-color: rgba(0, 0, 0, 0.913);
 }
 
 #disclaimer {
@@ -376,6 +396,9 @@ section footer {
   font-size: 14px;
   font-weight: 500;
   width: max-content;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 
   a {
     padding: 6px 10px;
@@ -468,6 +491,10 @@ section footer {
     display: none;
   }
 
+  .header-model {
+    margin-top: 130px;
+  }
+
   #open-menu-nav {
     display: block;
   }
@@ -477,12 +504,13 @@ section footer {
     position: absolute;
     padding: 0 25px 25px;
     height: 100vh;
+    height: 100dvh;
     width: 100vw;
     left: 0;
     overflow-y: auto !important;
     overflow-x: hidden;
     background-color: rgb(255, 255, 255);
-    display: block;
+    display: none;
   }
 
   .menu-navegation-responsive {
@@ -501,8 +529,10 @@ section footer {
     display: block;
   }
 
+
   .ul-nav-menu {
-    display: block;
+    flex-direction: column;
+    gap: 1rem;
     width: 100%;
   }
 
@@ -511,8 +541,10 @@ section footer {
   }
 
   .ul-nav-icons {
-    display: block;
+    flex-direction: column;
+    gap: 1rem;
     width: 100%;
+    margin-top: 1rem;
   }
 
   .buton-nav {
@@ -556,6 +588,7 @@ section footer {
   /* ESTILOS AL DESPLEGARSE EL MENU */
   .container-menu-products {
     flex-direction: column;
+    padding-bottom: 60px;
   }
 
   .line-vertical {
@@ -569,6 +602,7 @@ section footer {
   .menu-list {
     font-size: 17px;
     width: 100%;
+    gap: 1rem;
 
     a {
       padding: 7px 10px;
@@ -605,6 +639,13 @@ CUANDO SEA < 600px
 */
 @media (width < 600px) {
 
+  .header-model {
+    margin-top: 100px;
+
+    #model-tesla {
+      font-size: 36px;
+    }
+  }
 
   #landing-header {
     padding: 0px 16px;
@@ -673,6 +714,12 @@ CUANDO SEA < 600px
 }
 
 @media (width < 430px) {
+
+  .header-model {
+    #model-tesla {
+      font-size: 36px;
+    }
+  }
 
   .product {
     display: flex;
