@@ -1,27 +1,27 @@
 //FUNCION PARA CAMBIAR LOOS COLORES DEL HEADER
 
-const observerOptions = {
-    root: null, //defaolts to viewport
-    rootMargin: '0px', // en cuanto se vea el elemento
-    threshold: 0.5 // porcentaje de visibilidad
-};
+// const observerOptions = {
+//     root: null, //defaolts to viewport
+//     rootMargin: '0px', // en cuanto se vea el elemento
+//     threshold: 0.5 // porcentaje de visibilidad
+// };
 
-const header = document.querySelector("#landing-header");
-let color = null;
+// const header = document.querySelector("#landing-header");
+// let color = null;
 
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        const { isIntersecting } = entry
-        if (isIntersecting) {
-            color = entry.target.getAttribute('data-header-color')
-            // console.log(color)
-            header.style.color = color;
-        }
-    })
-}, observerOptions);
+// const observer = new IntersectionObserver(entries => {
+//     entries.forEach(entry => {
+//         const { isIntersecting } = entry
+//         if (isIntersecting) {
+//             color = entry.target.getAttribute('data-header-color')
+//             // console.log(color)
+//             header.style.color = color;
+//         }
+//     })
+// }, observerOptions);
 
-const sections = document.querySelectorAll(".landing-section");
-sections.forEach(section => observer.observe(section));
+// const sections = document.querySelectorAll(".landing-section");
+// sections.forEach(section => observer.observe(section));
 
 //---------------------------------------------------------------------------------------------------------------------
 
@@ -38,18 +38,23 @@ let menuSibling = document.getElementsByClassName("menu")[0]; //inicialmente par
 
 function clickOpenMenu() {
     menuNavContainer.style.display = "block";
-    header.style.color = "#000";
+    // header.style.color = "#000";
     clickBackInMenu();
 }
 
 function clickCloseMenu() {
     menuNavContainer.style.display = "none";
-    header.style.color = color;
+    // header.style.color = color;
     openMenuNav.style.display = "flex";
 }
 
 function clickButonNav(event) {
     button = event.target;
+
+    if (!button.classList.contains('arrow-right')) {
+        button = button.closest('button');
+    }
+
     menuSibling = button.nextElementSibling;
     menuSibling.style.display = "block";
     sectionInsertName.textContent = button.textContent;
@@ -105,14 +110,13 @@ const menus = document.getElementsByClassName("menu");
 function hiddenScrollYMain() {
     mainContainer.style.overflowY = "hidden";
     mainContainer.style.filter = "blur(5px)";
-    header.style.color = "#000";
+    // header.style.color = "#000";
 }
 
 function scrollYMain() {
     mainContainer.style.overflowY = "scroll";
     mainContainer.style.filter = "blur(0px)";
-    header.style.color = color;
-
+    // header.style.color = color;
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -147,6 +151,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
+//---------------------------------------------------------------------------------------------------------------------
+//estilo del nav-menu cuando se hace hover en el manu
+
+// Selecciona todos los elementos .buton-nav y .menu dentro de .ul-nav-menu > li
+document.querySelectorAll('.ul-nav-menu > li').forEach(function (item) {
+    const button = item.querySelector('.buton-nav');
+    const menu = item.querySelector('.menu');
+
+    // Agrega evento de mouseenter al menú para agregar la clase 'hovered' al botón
+    menu.addEventListener('mouseenter', function () {
+        button.classList.add('hovered');
+    });
+
+    // Agrega evento de mouseleave al menú para quitar la clase 'hovered' del botón
+    menu.addEventListener('mouseleave', function () {
+        button.classList.remove('hovered');
+    });
 
 
-
+});

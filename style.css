@@ -19,18 +19,65 @@ body {
   background-color: black;
 }
 
+/*
+FOOTER
+*/
+.footer-tesla {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 24px;
+  background-color: black;
+  color: white;
+  font-size: 12px;
+  min-height: 70px;
+  scroll-snap-align: center;
+
+
+  .nav-footer {
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+
+    ul {
+
+      li {
+        padding: 8px 0;
+        margin-right: 14px;
+
+        a:hover {
+          text-decoration: underline;
+        }
+
+      }
+    }
+  }
+
+}
+
+
 /* menu de navegacion*/
 #landing-header {
   display: flex;
   height: 56px;
+  height: 6vh;
+  height: 6dvh;
   padding: 0px 32px;
   color: currentColor;
   position: relative;
+  justify-content: space-between;
+  background-color: rgb(255, 255, 255);
+  z-index: 2;
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.426);
 }
 
 #nav-container {
   display: inline-flex;
-  flex-grow: 1
+  flex-grow: 1;
+}
+
+.nav-menu {
+  margin: auto;
 }
 
 .nav-menu,
@@ -50,8 +97,7 @@ body {
 }
 
 .nav-icons {
-  flex-grow: 1;
-  justify-content: end;
+  padding-right: 16px;
 }
 
 .buton-nav {
@@ -70,7 +116,6 @@ body {
 
 }
 
-
 .buton-nav:hover {
   background-color: rgba(0, 0, 0, 0.062);
   backdrop-filter: blur(10px);
@@ -80,9 +125,13 @@ body {
 .logo-container {
   z-index: 50;
   display: flex;
-  flex-grow: 1;
   align-items: center;
-  padding-left: 16px;
+
+  a {
+    display: flex;
+    justify-content: center;
+    padding: 0 16px;
+  }
 }
 
 .logo-icon {
@@ -97,27 +146,29 @@ body {
   display: flex;
 }
 
+
 /*
   MAIN CON LAS IMAGENES DE LOS COCHES Y LOS BOTONES
 */
 main {
   z-index: 1;
   position: relative;
-  margin-top: -56px;
   width: 100vw;
-  height: 100vh;
-  height: 100dvh;
-  height: 100;
-  overflow-y: scroll;
+  width: 100dvw;
+  height: 94vh;
+  height: 94dvh;
   overflow-x: hidden;
-  scroll-snap-type: y mandatory;
+  scroll-snap-type: y proximity;
+  overflow-y: auto;
   scroll-behavior: smooth;
+  scrollbar-width: thin;
 }
 
 section {
-  height: 100vh;
-  height: 100dvh;
   width: 100vw;
+  width: 100dvw;
+  height: 94vh;
+  height: 94dvh;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -125,7 +176,7 @@ section {
   background-size: cover;
   background-position: center;
   justify-content: space-between;
-  scroll-snap-align: start;
+  scroll-snap-align: center;
 
   a {
     text-decoration: underline;
@@ -135,11 +186,11 @@ section {
 /* backgraund sections */
 
 section:nth-child(1) {
-  background-image: url('images/Homepage-Model-Y-Desktop-Global.avif');
+  background-image: url('images/Homepage-Model-3-Desktop-LHD-v2.avif');
 }
 
 section:nth-child(2) {
-  background-image: url('images/Homepage-Model-3-Desktop-LHD-v2.avif');
+  background-image: url('images/Homepage-Model-Y-Desktop-Global.avif');
 }
 
 section:nth-child(3) {
@@ -148,6 +199,7 @@ section:nth-child(3) {
 
 section:nth-child(4) {
   background-image: url('images/Homepage-Model-S-Desktop-LHD-6.22.avif');
+  color: white;
 }
 
 section:nth-child(5) {
@@ -181,12 +233,13 @@ section:nth-child(9) {
   }
 
   #price {
-    font-size: 17px;
+    font-size: 22px;
     font-weight: 400;
   }
 
   #description {
-    font-size: 12px;
+    margin-top: 5px;
+    font-size: 13px;
     font-weight: 100;
   }
 
@@ -194,6 +247,7 @@ section:nth-child(9) {
     display: flex;
     width: max-content;
     margin: auto;
+    font-size: 15px;
   }
 }
 
@@ -215,7 +269,7 @@ section footer {
   text-decoration: none;
   display: inline-flex;
   padding: 4px 24px;
-  border-radius: 3px;
+  border-radius: 4px;
   width: 264px;
   height: 40px;
   font-size: 14px;
@@ -229,6 +283,57 @@ section footer {
   box-shadow: 0 0 25px 1px rgba(38, 38, 38, 0.382);
 }
 
+section:nth-child(5) {
+  .buttons {
+    .button {
+      border-radius: 0px;
+      background-color: rgba(0, 0, 0, 0.84) !important;
+      color: rgba(209, 209, 209, 0.885) !important;
+      border: 1px solid rgb(127, 127, 127) !important;
+      font-weight: 600;
+      letter-spacing: 1px;
+      word-spacing: 2px;
+    }
+
+    .button:hover {
+      color: white !important;
+      border: 1px solid rgb(186, 186, 186) !important;
+    }
+
+    #order-now {
+      border-top: 3px solid rgba(200, 200, 200, 0.979) !important;
+
+      &:hover {
+        border-top: 3px solid rgba(240, 240, 240, 0.979) !important;
+        background-color: rgba(31, 31, 31, 0.954) !important;
+      }
+
+      &:focus {
+        color: white !important;
+        border-top: 3px solid rgba(240, 240, 240, 0.979) !important;
+        background-color: rgba(31, 31, 31, 0.954) !important;
+        border: none;
+        box-shadow: none;
+      }
+    }
+
+    #learn-more {
+      &:hover {
+        background-color: rgba(35, 35, 35, 0.668) !important;
+      }
+
+      &:focus {
+        color: white !important;
+        background-color: rgba(35, 35, 35, 0.668) !important;
+        border: none;
+        box-shadow: none;
+      }
+    }
+
+  }
+}
+
+
 #order-now {
   backdrop-filter: blur(5px);
   color: black;
@@ -238,13 +343,13 @@ section footer {
 }
 
 #order-now:hover {
-  background-color: rgba(255, 255, 255, 0.991);
+  background-color: rgb(255, 255, 255);
 }
 
 #order-now:focus {
   border: 2px solid rgba(0, 0, 0, 0.914);
   box-shadow: inset 0 0 0 2px rgb(100, 100, 100);
-  background-color: rgba(255, 255, 255, 0.976);
+  background-color: rgb(255, 255, 255);
 }
 
 #demo-drive {
@@ -255,13 +360,13 @@ section footer {
 }
 
 #demo-drive:hover {
-  background-color: rgba(0, 0, 0, 0.967);
+  background-color: rgb(0, 0, 0);
 }
 
 #demo-drive:focus {
   border: 2px solid rgba(255, 255, 255, 0.774);
   box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.737);
-  background-color: rgba(0, 0, 0, 0.913);
+  background-color: rgb(0, 0, 0);
 }
 
 #disclaimer {
@@ -277,12 +382,10 @@ section footer {
 @keyframes descend {
   from {
     transform: translateY(-2%);
-    opacity: 0.5;
   }
 
   to {
     transform: translateY(0);
-    opacity: 1;
   }
 }
 
@@ -293,8 +396,11 @@ section footer {
 
   to {
     transform: translateY(-20%);
-    opacity: 0;
   }
+}
+
+.descend {
+  animation: descend 0.2s ease-in;
 }
 
 .menu {
@@ -307,7 +413,6 @@ section footer {
   left: 0;
   width: 100%;
   justify-content: center;
-  animation: descend 0.2s ease-in;
   box-shadow: 0 7px 15px rgba(0, 0, 0, 0.305);
   display: none;
 }
@@ -316,12 +421,19 @@ section footer {
   display: flex;
 }
 
+
 .button-shop:hover~.menu {
   display: flex;
 }
 
 .menu:hover {
   display: flex;
+}
+
+.buton-nav.hovered {
+  background-color: rgba(0, 0, 0, 0.062);
+  backdrop-filter: blur(10px);
+  border-radius: 4px;
 }
 
 /*
@@ -414,6 +526,7 @@ section footer {
 }
 
 
+
 /*
  ESTILOS BOTON DESPLIEGA NAV CUANDO SE HAGA LA PANTALLA < 1200px
 */
@@ -460,7 +573,8 @@ section footer {
   align-self: center;
   width: max-content;
 
-  img {
+  svg {
+    color: rgb(72, 72, 72);
     display: flex;
   }
 
@@ -479,10 +593,15 @@ section footer {
 }
 
 
-/*
- CUANDO SEA < 1200px  => RESPONSIVE, (activo los estilos)
-*/
+
 @media (width < 1200px) {
+
+  .logo-container {
+    a {
+      padding: 0 0px;
+    }
+  }
+
   .buton-nav:hover~.menu {
     display: none;
   }
@@ -503,9 +622,10 @@ section footer {
     z-index: 55;
     position: absolute;
     padding: 0 25px 25px;
+    width: 100vw;
+    width: 100dvw;
     height: 100vh;
     height: 100dvh;
-    width: 100vw;
     left: 0;
     overflow-y: auto !important;
     overflow-x: hidden;
@@ -633,22 +753,50 @@ section footer {
   }
 }
 
+.arrow-right {
+  display: none;
+}
 
-/*
-CUANDO SEA < 600px
-*/
+@media (width < 899px) {
+
+  .buton-nav {
+    justify-content: space-between;
+
+    .arrow-right {
+      display: flex;
+      align-items: center;
+
+      svg {
+        color: rgb(105, 105, 105);
+      }
+    }
+  }
+}
+
 @media (width < 600px) {
 
   .header-model {
     margin-top: 100px;
 
     #model-tesla {
-      font-size: 36px;
+      font-size: 30px;
+    }
+
+    #price {
+      font-size: 19px;
     }
   }
 
   #landing-header {
     padding: 0px 16px;
+  }
+
+  #disclaimer {
+    display: none;
+  }
+
+  section footer {
+    margin-bottom: 55px;
   }
 
   .menu {
@@ -665,8 +813,13 @@ CUANDO SEA < 600px
   }
 
   #order-now,
-  #demo-drive {
+  #demo-drive,
+  #learn-more{
     width: 100%;
+  }
+
+  #demo-drive {
+    border: 1px solid white
   }
 
   .product {
@@ -675,12 +828,14 @@ CUANDO SEA < 600px
     }
   }
 
+
+
   section:nth-child(1) {
-    background-image: url('images/homepage-img-movil/Homepage-Model-Y-Mobile-Global.avif');
+    background-image: url('images/homepage-img-movil/Homepage-Model-3-Mobile-LHD-v2.avif');
   }
 
   section:nth-child(2) {
-    background-image: url('images/homepage-img-movil/Homepage-Model-3-Mobile-LHD-v2.avif');
+    background-image: url('images/homepage-img-movil/Homepage-Model-Y-Mobile-Global.avif');
   }
 
   section:nth-child(3) {
@@ -697,7 +852,6 @@ CUANDO SEA < 600px
 
   section:nth-child(6) {
     background-image: url('images/homepage-img-movil/Homepage-SolarPanels-01-Mobile.avif');
-    color: white;
   }
 
   section:nth-child(7) {
@@ -714,13 +868,6 @@ CUANDO SEA < 600px
 }
 
 @media (width < 430px) {
-
-  .header-model {
-    #model-tesla {
-      font-size: 36px;
-    }
-  }
-
   .product {
     display: flex;
     gap: 0.5rem;
